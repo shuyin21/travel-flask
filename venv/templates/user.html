@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}User page{% endblock %}
+
+{% block content %}
+{% for row in data %}
+{% for mem in sTD %}
+{% for mem2 in sTD2 %}
+{% for mem3 in sTD3 %}
+
+
+
+
+<div class="userdata-div">
+    <div id="user-bcg"></div>
+
+
+    <div class="user-details">
+        <div class="user-data">
+            <h1>{{row["firstname"]}}`s User page</h1>
+
+            <h4>Your name: </h4>
+            <span>{{row["firstname"]}} {{row["lastname"]}}</span>
+            <h4>Your email:</h4>
+            <span>{{row["email"]}}</span>
+            <h4>You plan to travel</h4>
+            <span>from {{row["country_from"]}} to {{row["country_to"]}}</span>
+            <h4>Your info about the travel is:</h4>
+            <span> {{row["info"]}}</span>
+            <h4>Your date of travel is: </h4>
+            <span>{{row["date"]}}</span>
+        </div>
+
+        <div id="user-travelers">
+            <h1>Saved Travelers</h1>
+            <span>{{row["saved_travelers"]}} </span><span>{{mem['firstname']}}
+                {{mem['lastname']}}</span>
+            <a href="{{url_for('member', memberID=mem['Member_ID'])}}">Contact</a>
+            <span>{{row["saved_travelers2"]}}</span><span> {{mem2['firstname']}}
+                {{mem2['lastname']}}</span>
+            <a href="{{url_for('member', memberID=mem2['Member_ID'])}}">Contact</a>
+            <span>{{row["saved_travelersTwo"]}} </span><span>{{mem3['firstname']}}
+                {{mem3['lastname']}}</span>
+            <a href="{{url_for('member', memberID=mem3['Member_ID'])}}">Contact</a>
+
+        </div>
+
+
+        <a class="update-btn" href="{{url_for('update', memberID=row['Member_ID'])}}">Update your details</a>
+    </div>
+</div>
+
+
+
+
+{% endfor %}
+{% endfor %}
+{% endfor %}
+{% endfor %}
+<span class="message">{{emessage}}</span>
+
+<script src="../static/js/user.js"></script>
+{% endblock %}

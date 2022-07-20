@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Login page{% endblock %}
+
+{% block content %}
+<div id="login-wrapper">
+    <div class="login-register-bcg"></div>
+
+    <form id="login-form" action="#" method="post">
+        <h3>Login</h3>
+        <input type="email" name="nm">
+        <input type="password" name="pass">
+        <span class="message">{{message}}</span>
+        <input class="btn-div" type="submit" value="submit">
+    </form>
+
+</div>
+{% endblock %}

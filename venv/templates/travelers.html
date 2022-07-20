@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Travelers page{% endblock %}
+
+{% block content %}
+<div id="travelers-page">
+    <h2>Search for Travellers by:</h2>
+    <div class="tvs-buttons">
+        <button class="tvs-btn" id="cFBtn" onClick="countryFromHandler()">Country from</button>
+        <button class="tvs-btn" id="cTBtn" onClick="countryToHandler()">Country to</button>
+        <button class="tvs-btn" id="gBtn" onClick="genderHandler()">Gender</button>
+        <button class="tvs-btn" id="dbtn" onClick="dateHandler()">Date</button>
+        <button class="tvs-btn" id="dbtn" onClick="showAll()">Show All Travelers</button>
+    </div>
+    <div id="select-wrapper"></div>
+
+    <div>
+
+        <div class="tvs-flex">
+
+            {% for row in data %}
+            <div class="data-row tvs-data display-none">
+                <h5 class="firstname">{{row["firstname"]}} {{row["lastname"]}}</h5>
+                <h5 class="gender">{{row["gender"]}}</h5>
+                <h5 class="coundivy-from">{{row["country_from"]}}</h5>
+                <h5 class="country-to">{{row["country_to"]}}</h5>
+                <h5>{{row["date"]}}</h5>
+
+
+                <div>
+                    <button class="tvs-btn" type="button">
+                        <a href="{{url_for('travelerData', memberID=row['Member_ID'])}}">Details</a>
+                    </button>
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+<script src="../static/js/travelers.js"></script>
+{% endblock %}

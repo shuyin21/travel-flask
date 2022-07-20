@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Login page{% endblock %}
+
+{% block content %}
+{% for row in memberData %}
+
+
+
+
+
+<div class="userdata-div">
+    <div id="user-bcg"></div>
+    <div class="user-details">
+        <h2>This is the Saved Traveler`s page</h2>
+        <div class="user-data">
+            <h4>Traveler`s name: </h4><span>{{row["firstname"]}} {{row["lastname"]}}</span>
+            <h4>Email:</h4><a href="mailto:{{row['email']}}"> {{row["email"]}}</a>
+            <h4>{{row["firstname"]}}`s plan to travel</h4><span></span>
+            <h4></h4><span> from {{row["country_from"]}} to {{row["country_to"]}}</span>
+            <h4>Info about the travel is:</h4><span> {{row["info"]}}</span>
+            <h4>{{row["firstname"]}}`s date of travel is:</h4><span> {{row["date"]}}</span>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+{% endfor %}
+<span class="message">{{emessage}}</span>
+
+<script src="../static/js/user.js"></script>
+{% endblock %}

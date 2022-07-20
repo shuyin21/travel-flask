@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Login page{% endblock %}
+
+{% block content %}
+<div class="traveler-page">
+
+
+    <div>
+
+        <div>
+
+            {% for row in data %}
+            <div class="traveler-data">
+
+                <h4>Traveler`s name:</h4><span>{{row["firstname"]}} {{row["lastname"]}}</span>
+                <h4>Gender:</h4><span>{{row["gender"]}}</span>
+                <h4>Travel from:</h4><span>{{row["country_from"]}}</span>
+                <h4>Travel to:</h4><span>{{row["country_to"]}}</span>
+                <h4>Information about the travel:</h4><span>{{row["info"]}}</span>
+                <h4>Email:</h4><span name="email" value="{{row['email']}}">{{row['email']}}"</span>
+                <h4>Date:</h4><span>{{row["date"]}}</span>
+
+
+
+                <div>
+                    <button style="margin:5px 0;" class="btn-div" type="button">
+                        <a
+                            href="{{url_for('addTraveler', email=row['email'],travel1=row['saved_travelers'],travel2=row['saved_travelers2'],travel3=row['saved_travelersTwo'])}}">Save</a>
+                    </button>
+                </div>
+                <span class="message">{{message}}</span>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+<script src="../static/js/travelers.js"></script>
+{% endblock %}

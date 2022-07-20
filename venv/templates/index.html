@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+<div id="home-div">
+
+    <div class="darkening"></div>
+    <div id="title-wrapper">
+
+        <h1>Welcome to Travel Buddy</h1>
+        <p>You have a place what you always wanted to visit, just don`t have the buddy to go with!!</p>
+
+        <div id="buttons-wrapper">
+            <div class="btn-div" onClick="login()">Login</div>
+            <div class="btn-div" onClick="register()">Register</a></div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="../static/js/index.js"></script>
+{% endblock %}

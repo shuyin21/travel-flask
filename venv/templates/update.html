@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Login page{% endblock %}
+
+{% block content %}
+{% for row in data %}
+
+
+<div id="updateForm-div">
+    <div class="login-register-bcg"></div>
+    <form action="#" id="update-form" method="POST">
+        <h3>Update</h3>
+        <input class="form-input" required type="text" name="fname" value="{{row['firstname']}}">
+        <input class="form-input" required type="text" name="lname" value="{{row['lastname']}}">
+
+        <input class="form-input" required type="text" name="gender" value="{{row['gender']}}">
+        <input class="form-input" required type="text" name="cFrom" value="{{row['country_from']}}">
+        <input class="form-input" required type="text" name="cTo" value="{{row['country_to']}}">
+        <textarea class="form-input" required type="text" name="info" placeholder="{{row['info']}}"></textarea>
+        <input class="form-input" required type="date" name="date" value="{{row['date']}}">
+
+        <input id="submit-btn" class="btn-div" type="submit" value="submit">
+
+    </form>
+
+    <div id="tv-span">
+        <div class="tv-div">
+            <h4 id="tv1">Saved Traveler 1</h4><span class="traveler-span">{{row['saved_travelers']}}</span>
+            <form action="{{url_for('delete',travelerLocation='saved_travelers' )}}" method="post">
+                <input class="tv-btn" type="submit" value="Delete Traveler 1"
+                    input.onclick="confirm('Do you want to Delete this songs?')" ;>
+            </form>
+        </div>
+        <div class="tv-div">
+            <h4 id="tv2">Saved Traveler 2</h4><span class="traveler-span">{{row['saved_travelers2']}}</span>
+            <form action="{{url_for('delete',travelerLocation='saved_travelers2' )}}" method="post">
+                <input class="tv-btn" type="submit" value="Delete Traveler 2"
+                    input.onclick="confirm('Do you want to Delete this songs?')" ;>
+            </form>
+        </div>
+
+        <div class="tv-div">
+            <h4 id="tv3">Saved Traveler 3</h4><span class="traveler-span">{{row['saved_travelersTwo']}}</span>
+            <form action="{{url_for('delete',travelerLocation='saved_travelersTwo' )}}" method="post">
+                <input class="tv-btn" type="submit" value="Delete Traveler 3"
+                    input.onclick="confirm('Do you want to Delete this songs?')" ;>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+
+
+<script src="../static/js/update.js"></script>
+
+{% endblock %}
